@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="max-xl:text-[80%] max-[450px]:text-[75%] max-[423px]:text-[50%]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="./output.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive card details form</title>
+
+</head>
+<body class="w-screen bg-[url('/images/bg-main-desktop.png')] bg-no-repeat max-[850px]:bg-[url('/images/bg-main-mobile.png')] max-[850px]:bg-repeat-x">
+
+  <!-- the main  -->
+    <main class="flex px-20 justify-between gap-8 items-center mt-20 max-[850px]:flex-col max-sm:px-8 max-[280px]:px-3">
+
+      <!-- the first main section  -->
+      <section class="flex w-[50%] max-[850px]:w-[80%] gap-10 flex-col max-[850px]:gap-0 max-[850px]:flex-col-reverse max-sm:px-8 max-sm:w-full">
+
+          <div class="relative place-self-start -top-10 z-20">
+            <img src="/images/bg-card-front.png"
+             alt="bg-card-front"
+             class="w-4/5">
+
+          <span class="flex items-center gap-2 absolute top-5 left-5">
+          <div class="w-8 h-8 rounded-full bg-white"></div>
+          <div class="w-4 h-4 border-white rounded-full border-solid border"></div>
+        </span>
+
+          <h2 class="text-3xl absolute bottom-20 left-5 text-pWhite card-num">0000 0000 0000 0000</h2>
+          <span class="w-[70%] flex justify-between text-2xl absolute left-5 bottom-5 text-pWhite">
+            <p class="card-name">felicia leire</p>
+            <div class="flex">
+              <p class="card-mm">00</p>
+              /
+              <p class="card-yy">00</p>
+            </div>
+          </span>
+        </div>
+
+        <div class=" relative place-self-end max-[850px]:right-0">
+          <img src="/images/bg-card-back.png"
+           alt=""
+           class="w-4/5 ml-auto">
+          <p class="absolute text-white top-[43%] right-16 cardCvv">000</p>
+        </div>
+      </section>
+
+      <!-- this is the input section  -->
+      <section class="w-[40%] max-[850px]:w-[80%] relative max-sm:w-full max-sm:px-8 max-[850px]:pb-10">
+        <form class="flex flex-col gap-5 form">
+
+          <div>
+          <label for="card-name" class="font-bold text-sm text-pViolet">CARDHOLDER NAME</label><br>
+            <input type="text" placeholder="e.g Jane Appleased" class="border pl-5 outline-none w-full max-[850px]:p-3 hName" required><br>
+            <small></small>
+        </div>
+
+        <div>
+          <label for="card-name" class="font-bold text-sm text-pViolet">CARD NUMBER</label><br>
+            <input type="text" placeholder="e.g 1234 5678 9123 0000" class="border pl-5 outline-none w-full max-[850px]:p-3 hNum" maxlength="16" required><br>
+            <small></small>
+        </div>
+
+        <div class="flex gap-5">
+
+          <span class="w-1/2">
+            <label for="exp-date" class="text-sm font-bold text-pViolet">EXP. DATE (MM/YY)</label><br>
+            <div class="flex gap-2">
+              <div class="w-1/2">
+            <input type="number" placeholder="MM" class="w-full pl-2 outline-none border max-[850px]:p-3 mm" pattern="/d{2}" required><br>
+            <small></small></div>
+
+            <div class="w-1/2">
+            <input type="number" placeholder="YY" class="w-full pl-2 outline-none border max-[850px]:p-3 yy" pattern="/d{2}" required><br>
+            <small></small></div>
+          </div>
+            
+          </span>
+
+          <span class="w-1/2">
+            <label for="cvc" class="font-bold text-sm text-pViolet">CVC</label><br>
+            <input maxlength="3" type="number" placeholder="e.g. 123" class="border outline-none pl-3 w-full max-[850px]:p-3 cvv" pattern="/d{3}" required><br>
+            <small></small>
+          </span>
+
+        </div>
+
+        <button class="bg-violet-950 text-white w-full text-center shadow-sm rounded py-3 s-btn" type="submit">Confirm</button>
+        </form>
+
+        <!-- this is the submit status  -->
+        <div class="flex flex-col justify-center items-center opacity- absolute top-0 left-0 w-full scale-0 s-status gap-5">
+          <img src="/images/icon-complete.svg" alt="">
+          <h2 class="uppercase text-pViolet font-bold">thank you !</h2>
+          <p class="text-pViolet">We've added your card details
+            Continue</p>
+          <button class="w-full bg-violet-950 py-3 text-white">Continue</button>
+        </div>
+      </section>
+
+    </main>
+   
+  <script src="script.js"></script>
+</body>
+</html>
