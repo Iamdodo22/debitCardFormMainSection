@@ -49,21 +49,32 @@ form.addEventListener('submit', (e)=>{
 
 const subStatus = document.querySelector('.s-status')
 submitBtn.addEventListener('click', (e)=>{
+    e.preventDefault()
+    const inputs =[nameInput, numInput, mm, yy,cvvInput];
+    const errorLabel = document.querySelectorAll('small');
+    inputs.forEach(event=>{
+        if(event.value === ''){
+     event.style.color = 'hsl(0, 100%, 66%)';
+    event.style.borderColor='hsl(0, 100%, 66%)';
+
     
-
-    const inputs =[nameInput, numInput, mm, yy,cvvInput]
-    for(let i=0; i<inputs.length; i++){
-        if(inputs[i].value === ''){
-            document.querySelectorAll('small').forEach((e)=>{
-                e.innerHTML = 'this field is required';
-                e.style.color = 'hsl(0, 100%, 66%)'
-            })
-            inputs[i].style.borderColor='hsl(0, 100%, 66%)'
-            ;
-        }
-
-
+    errorLabel.forEach( e=>{ e.textContent =  'this field is required';
+            e.style.color='hsl(0, 100%, 66%)'
+})
+    }
+        
     else{form.classList.toggle('opacity-0')
-    subStatus.classList.toggle('scale-0')}}
-  return;
+    subStatus.classList.toggle('scale-0')
+    event.style.color = ''
+    event.style.borderColor=''
+   
+
+}
+})
+})
+
+const continueBtn = document.querySelector('.status-btn')
+continueBtn.addEventListener('click', e=>{
+    form.classList.toggle('opacity-0')
+    subStatus.classList.toggle('scale-0')
 })
