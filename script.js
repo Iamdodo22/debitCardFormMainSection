@@ -17,7 +17,9 @@ const cardCvv = document.querySelector('.cardCvv');
 let submitBtn =document.querySelector('.s-btn');
 
 nameInput.addEventListener('input', (e)=>{
-    cardName.textContent = nameInput.value;
+    if(e.target.value.length <= 16){    
+        cardName.textContent = e.target.value;
+}
 })
 numInput.addEventListener('input', (e)=>{
 
@@ -25,25 +27,21 @@ numInput.addEventListener('input', (e)=>{
     const numPattern = input.replace(/(\d{4})/g, '$1 ').trim()
      e.value = numPattern
     cardNum.textContent = e.value;
-    console.log(e.value)
 
 })
 mm.addEventListener('input', (e)=>{
     if(e.target.value.length <= 2){    
         cardMm.textContent = e.target.value;
-    console.log(e.target.value)
 } 
 })
 yy.addEventListener('input', (e)=>{
     if(e.target.value.length <= 2){    
         cardYy.textContent = e.target.value;
-    console.log(e.target.value)
 }
 })
 cvvInput.addEventListener('input', (e)=>{
     if(e.target.value.length <= 3){    
         cardCvv.textContent = e.target.value;
-    console.log(e.target.value)
 }
 })
 
