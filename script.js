@@ -15,6 +15,8 @@ const cardYy = document.querySelector('.card-yy');
 const cardCvv = document.querySelector('.cardCvv');
 
 let submitBtn =document.querySelector('.s-btn');
+const subStatus = document.querySelector('.s-status')
+const inputs =[nameInput, numInput, mm, yy,cvvInput];
 
 nameInput.addEventListener('input', (e)=>{
     if(e.target.value.length <= 16){    
@@ -30,69 +32,68 @@ numInput.addEventListener('input', (e)=>{
 
 })
 mm.addEventListener('input', (e)=>{
-    if(e.target.value.length <= 2){    
-        cardMm.textContent = e.target.value;
+    if(e.target.value.length <= 2){  
+        cardMm.textContent = Number(e.target.value);
+        
 } 
 })
 yy.addEventListener('input', (e)=>{
     if(e.target.value.length <= 2){    
-        cardYy.textContent = e.target.value;
+        cardYy.textContent = Number(e.target.value);
 }
 })
 cvvInput.addEventListener('input', (e)=>{
     if(e.target.value.length <= 3){    
-        cardCvv.textContent = e.target.value;
+        cardCvv.textContent = Number(e.target.value);
 }
 })
 
-// form.addEventListener('submit', (e)=>{
-//     e.preventDefault()
- 
-// } 
-// )
-
-
-
-
-
-
-
-
-// output
-const subStatus = document.querySelector('.s-status')
-
-const isValid = 
 
 // submit btn
 submitBtn.addEventListener('click', (e)=>{
     e.preventDefault()
-    const inputs =[nameInput, numInput, mm, yy,cvvInput];
-    const errorLabel = document.querySelectorAll('small');
+    // const errorLabel = document.querySelectorAll('small');
 
-    inputs.forEach(event=>{
-        if(event.value === ''){
-     event.style.color = 'hsl(0, 100%, 66%)';
-    event.style.borderColor='hsl(0, 100%, 66%)';
+    const isValid = (inputs[0].value.length >=4 || inputs[0].value.length === 16) && inputs[1].value.length === 16 && inputs[2].value.length === 2 && inputs[3].value.length === 2 && inputs[4].value.length === 3 ? 'true': 'false';
 
-    
-    errorLabel.forEach( e=>{
-         e.textContent =  'this field is required';
-            e.style.color='hsl(0, 100%, 66%)'
-})
-    }
-        
-    else{form.classList.toggle('opacity-0')
+    if(isValid === 'true'){
+       form.classList.toggle('opacity-0')
     subStatus.classList.toggle('scale-0')
-    event.style.color = ''
-    event.style.borderColor=''
-}
-})
-})
+        return;
+    };
 
+    if(isValid === 'false'){
+        inputs.filter(e => e.value === '')
+        .forEach(e =>{
+            e.style.color = 'hsl(0, 100%, 66%)';
+            e.style.borderColor='hsl(0, 100%, 66%)'
+       return;     
+    }) 
+
+   const errorLabel = document.querySelectorAll('small')
+    errorLabel.forEach( e=>{
+        e.textContent =  'this field is required';
+           e.style.color='hsl(0, 100%, 66%)'
+})
+        return;
+    };
+
+    console.log(isValid);
+
+})
+ 
+         
 
 // continue btn
 const continueBtn = document.querySelector('.status-btn')
 continueBtn.addEventListener('click', e=>{
     form.classList.toggle('opacity-0')
     subStatus.classList.toggle('scale-0')
+    form.reset()
+
+    cardName.textContent = 'felicia leire';
+    cardNum.textContent = '0000 0000 0000 0000';
+    cardMm.textContent = '00'
+    cardYy.textContent = '00'
+    cardCvv.textContent = '000'
 })
