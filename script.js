@@ -90,10 +90,6 @@ continueBtn.addEventListener('click', e=>{
     form.classList.toggle('opacity-0')
     subStatus.classList.toggle('scale-0')
     form.reset()
+    location.reload()
 
-    cardName.textContent = 'felicia leire';
-    cardNum.textContent = '0000 0000 0000 0000';
-    cardMm.textContent = '00'
-    cardYy.textContent = '00'
-    cardCvv.textContent = '000'
 })
