@@ -53,13 +53,13 @@
           <div>
           <label for="card-name" class="font-bold text-sm text-pViolet">CARDHOLDER NAME</label><br>
             <input type="text" placeholder="e.g Jane Appleased" class="border pl-5 outline-none w-full max-[850px]:p-3 hName" required><br>
-            <small></small>
+            <small class="text-pError"></small>
         </div>
 
         <div>
           <label for="card-name" class="font-bold text-sm text-pViolet">CARD NUMBER</label><br>
             <input type="text" placeholder="e.g 1234 5678 9123 0000" class="border pl-5 outline-none w-full max-[850px]:p-3 hNum" maxlength="16" required><br>
-            <small></small>
+            <small class="text-pError"></small>
         </div>
 
         <div class="flex gap-5">
@@ -69,11 +69,11 @@
             <div class="flex gap-2">
               <div class="w-1/2">
             <input type="number" placeholder="MM" class="w-full pl-2 outline-none border max-[850px]:p-3 mm" pattern="\d{2}" required><br>
-            <small></small></div>
+            <small class="text-pError"></small></div>
 
             <div class="w-1/2">
             <input type="number" placeholder="YY" class="w-full pl-2 outline-none border max-[850px]:p-3 yy" pattern="\d{2}" required><br>
-            <small></small></div>
+            <small class="text-pError"></small></div>
           </div>
             
           </span>
@@ -81,7 +81,7 @@
           <span class="w-1/2">
             <label for="cvc" class="font-bold text-sm text-pViolet">CVC</label><br>
             <input maxlength="3" type="number" placeholder="e.g. 123" class="border outline-none pl-3 w-full max-[850px]:p-3 cvv" pattern="/d{3}" required><br>
-            <small></small>
+            <small class="text-pError"></small>
           </span>
 
         </div>
