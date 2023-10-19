@@ -92,9 +92,9 @@ submitBtn.addEventListener('click', (e)=>{
 
     inputs[0].value.length > 16? errLabelArr[0].textContent ='Name too long':null;
     inputs[1].value.length > 0 && inputs[1].value.length < 16? errLabelArr[1].textContent ='enter correct number':null;
-    inputs[2].value.length > 2 ? errLabelArr[2].textContent = 'incorrect month':null;
-    inputs[3].value.length > 2 ? errLabelArr[3].textContent = 'incorrect year':null;
-    inputs[4].value.length > 3 ? errLabelArr[4].textContent ='incorrect':null;
+    inputs[2].value.length > 2 || inputs[4].value.length < 2 ? errLabelArr[2].textContent = 'incorrect month':null;
+    inputs[3].value.length > 2 || inputs[4].value.length < 2 ? errLabelArr[3].textContent = 'incorrect year':null;
+    inputs[4].value.length > 3 ||inputs[4].value.length < 3 ? errLabelArr[4].textContent ='incorrect':null;
     console.log(isValid);
 
 })
