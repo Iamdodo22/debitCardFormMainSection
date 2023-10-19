@@ -20,23 +20,38 @@ nameInput.addEventListener('input', (e)=>{
     cardName.textContent = nameInput.value;
 })
 numInput.addEventListener('input', (e)=>{
-    cardNum.textContent = numInput.value;
+
+    const input = e.target.value.replace('/\s/g', '')
+    const numPattern = input.replace(/(\d{4})/g, '$1 ').trim()
+     e.value = numPattern
+    cardNum.textContent = e.value;
+    console.log(e.value)
+
 })
 mm.addEventListener('input', (e)=>{
-    cardMm.textContent = mm.value;
+    if(e.target.value.length <= 2){    
+        cardMm.textContent = e.target.value;
+    console.log(e.target.value)
+} 
 })
 yy.addEventListener('input', (e)=>{
-    cardYy.textContent = yy.value;
+    if(e.target.value.length <= 2){    
+        cardYy.textContent = e.target.value;
+    console.log(e.target.value)
+}
 })
 cvvInput.addEventListener('input', (e)=>{
-    cardCvv.textContent = cvvInput.value;
+    if(e.target.value.length <= 3){    
+        cardCvv.textContent = e.target.value;
+    console.log(e.target.value)
+}
 })
 
-form.addEventListener('submit', (e)=>{
-    e.preventDefault()
+// form.addEventListener('submit', (e)=>{
+//     e.preventDefault()
  
-} 
-)
+// } 
+// )
 
 
 
@@ -46,19 +61,24 @@ form.addEventListener('submit', (e)=>{
 
 
 // output
-
 const subStatus = document.querySelector('.s-status')
+
+const isValid = 
+
+// submit btn
 submitBtn.addEventListener('click', (e)=>{
     e.preventDefault()
     const inputs =[nameInput, numInput, mm, yy,cvvInput];
     const errorLabel = document.querySelectorAll('small');
+
     inputs.forEach(event=>{
         if(event.value === ''){
      event.style.color = 'hsl(0, 100%, 66%)';
     event.style.borderColor='hsl(0, 100%, 66%)';
 
     
-    errorLabel.forEach( e=>{ e.textContent =  'this field is required';
+    errorLabel.forEach( e=>{
+         e.textContent =  'this field is required';
             e.style.color='hsl(0, 100%, 66%)'
 })
     }
@@ -67,12 +87,12 @@ submitBtn.addEventListener('click', (e)=>{
     subStatus.classList.toggle('scale-0')
     event.style.color = ''
     event.style.borderColor=''
-   
-
 }
 })
 })
 
+
+// continue btn
 const continueBtn = document.querySelector('.status-btn')
 continueBtn.addEventListener('click', e=>{
     form.classList.toggle('opacity-0')
